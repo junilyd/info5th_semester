@@ -1,0 +1,159 @@
+% vim:nospell
+\documentclass[10pt,t]{beamer}
+\usetheme[
+%%% options passed to the outer theme
+%    hidetitle,           % hide the (short) title in the sidebar
+%    hideauthor,          % hide the (short) author in the sidebar
+%    hideinstitute,       % hide the (short) institute in the bottom of the sidebar
+%    shownavsym,          % show the navigation symbols
+%    width=2cm,           % width of the sidebar (default is 2 cm)
+%    hideothersubsections,% hide all subsections but the subsections in the current section
+%    hideallsubsections,  % hide all subsections
+    right               % right of left position of sidebar (default is right)
+%%% options passed to the color theme
+   % lightheaderbg,       % use a light header background
+  ]{AAUsidebar}
+% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
+% Change the bar and sidebar colors:
+%\setbeamercolor{AAUsidebar}{fg=red!20,bg=red}
+%\setbeamercolor{sidebar}{bg=red!20}
+% Change the color of the structural elements:
+%\setbeamercolor{structure}{fg=red}
+% Change the frame title text color:
+%\setbeamercolor{frametitle}{fg=blue}
+% Change the normal text color background:
+%\setbeamercolor{normal text}{bg=gray!10}
+\setbeamercolor{normal text}{fg=black}
+% ... and you can of course change a lot more - see the beamer user manual.
+
+\usepackage{graphicx}
+\usepackage[ansinew]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{circuitikz}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+\usepackage[scaled=0.83]{helvet}
+\usetikzlibrary{shapes,arrows,positioning,patterns,decorations.markings,decorations.pathmorphing}
+% \usetikzlibrary{external} 
+% \tikzexternalize[prefix=img/tikz/]
+\tikzset{
+    >=latex,
+    font=\scriptsize,
+}
+\pgfplotsset{
+    compat=newest,
+    every axis plot/.append style = {
+        very thick,
+    },
+    every axis legend/.append style={
+        font={\scriptsize},
+    },
+    every axis/.append style={
+        legend style={draw=none},
+        legend cell align=left,
+        axis x line=bottom,
+        axis y line=left,
+        scaled ticks=false,
+        xticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
+        yticklabel = \pgfmathparse{\tick*1}\sisetup{scientific-notation = engineering}\num{\pgfmathresult},
+        width=16cm,
+        height=5cm,
+        axis line style=-latex,
+        tick scale binop=\times,
+        /pgf/number format/.cd,
+        set thousands separator={ },
+        set decimal separator={,},
+    },
+    every axis x label/.style={
+        at={(ticklabel* cs:1.00)},
+        anchor=west,
+    },
+    every axis y label/.style={
+        at={(ticklabel* cs:1.00)},
+        anchor=south,
+    },
+}
+
+\usepackage[per-mode = symbol,detect-all=true]{siunitx}
+\sisetup{
+    output-decimal-marker = {.},
+    output-exponent-marker=\textsc{e}, 
+    % round-mode=places,
+    output-complex-root=j, 
+    % unit-color=blue,
+    % scientific-notation = engineering
+}
+\DeclareSIUnit[number-unit-product = \,]{\permil}{\textperthousand}
+
+% colored hyperlinks
+\newcommand{\chref}[2]{%
+  \href{#1}{{\usebeamercolor[bg]{AAUsidebar}#2}}%
+}
+
+\title[GFSK Demodulator]% optional, use only with long paper titles
+{\large DSP-Based GFSK Demodulator for AAU Ground Station}
+
+\subtitle{Group 627}  % could also be a conference name
+
+\date{June 18, 2014}
+
+\author[Group 627] % optional, use only with lots of authors
+{
+  Jacob Velling Dueholm\\
+  Jacob Møller Hjerrild Hansen\\
+  Miklas Strøm Kristoffersen\\
+  Søren Bøgeskov Nørgaard\\
+  \href{mailto:14gr627@es.aau.dk}{{\tt 14gr627@es.aau.dk}}
+}
+% - Give the names in the same order as they appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation. See the beamer manual for an example
+
+\institute[
+%  {\includegraphics[scale=0.2]{aau_segl}}\\ %insert a company, department or university logo
+  Dept.\ of Electronic Systems\\
+  Aalborg University\\
+  Denmark
+] % optional - is placed in the bottom of the sidebar on every slide
+{% is placed on the title page
+  Department of Electronic Systems\\
+  Aalborg University\\
+  Denmark
+  
+  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+}
+
+
+% specify a logo on the titlepage (you can specify additional logos an include them in 
+% institute command below
+\pgfdeclareimage[height=1.5cm]{titlepagelogo}{AAUgraphics/aau_logo_new} % placed on the title page
+%\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{graphics/aau_logo_new} % placed on the title page
+\titlegraphic{% is placed on the bottom of the title page
+  \pgfuseimage{titlepagelogo}
+%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
+}
+
+
+\begin{document}
+% the titlepage
+{\aauwavesbg%
+\begin{frame}[plain,noframenumbering] % the plain option removes the sidebar and header from the title page
+  \titlepage
+\end{frame}}
+%%%%%%%%%%%%%%%%
+
+% TOC
+\begin{frame}{Agenda}{}
+\tableofcontents
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\input sec/01
+\input sec/02
+\input sec/03
+\input sec/04
+
+\end{document}
