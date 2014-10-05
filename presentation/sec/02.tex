@@ -2,7 +2,7 @@
 % \label{sec:01label}
 
 %% Template
-% \subsection{Frequency Domain Analysis}
+\subsection{Frequency Domain Analysis}
 \begin{frame} \frametitle{Frequency Domain Analysis}
     \framesubtitle{FSK Modulation and Fourier Transformation}
     \begin{block}{Satelite Simulation and Recordings}    
@@ -20,9 +20,8 @@
     \end{block}
 \end{frame}
 
-% \subsection{Filter Implementation}
+\subsection{Filter Design}
 \begin{frame} \frametitle{Filter Design}
-    \framesubtitle{From s-domain to z-domain}
     \begin{block}{Filter Design Specs}    
         \begin{center}
             \includegraphics[width=0.8\textwidth]{img/filter2_frq_res}
@@ -34,9 +33,9 @@
     \end{block}
 \end{frame}
 
-% \subsection{Filter Implementation}
+\subsection{Filter Implementation}
 \begin{frame} \frametitle{Filter Implementation}
-    \framesubtitle{From s-domain to z-domain}
+    \framesubtitle{From $s$-domain to $z$-domain}
     \begin{block}{Filter Design Specs}    
         \begin{center}
             \includegraphics[width=0.8\textwidth]{img/filter_C_cascade}
@@ -45,12 +44,12 @@
             \includegraphics[width=0.8\textwidth]{img/filter_asm_cascade}
         \end{center}
         \begin{itemize}
-            \item Implementing in C and Assembly ($z$-domain).
+            \item Implementing in C and ASM ($z$-domain).
         \end{itemize}
     \end{block}
 \end{frame}
 
-% \subsection{Power Detection}
+\subsection{Power Detection}
 \begin{frame} \frametitle{Power Detection}
     \framesubtitle{Packet Detection for SDR}
     \begin{block}{Packet Detection \& Time Synchronization}    
@@ -63,6 +62,52 @@
         \begin{itemize}
             \item Could also be for localization of speech.
         \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Results}
+\begin{frame} \frametitle{System Output}
+    \framesubtitle{Analog to Binary format}
+    \begin{block}{FSK - Frequency Shift Keying}    
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{img/gfsk_basics}
+        \end{center}
+        \begin{itemize}
+            \item $f_0$ and $f_1$.
+        \end{itemize}
+    \end{block}
+\end{frame}
+%
+\begin{frame}\frametitle{System Output}
+    \begin{block}{Phase input to Binary Output} 
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{img/gfsk_integration} 
+        \end{center}
+        \begin{equation}
+            \phi(t) = \phi(0) + \frac{h \pi}{T_b}\int_0^{T_b} m_{NRZ}dt
+        \end{equation}
+    \end{block}
+\end{frame}
+
+\begin{frame}\frametitle{System Output}
+    \begin{block}{Phase input to Binary Output} 
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{img/gfsk_integration} 
+        \end{center}
+        \begin{equation}
+            \phi(t) = \phi(0) + \frac{h \pi}{T_b}\int_0^{T_b} m_{NRZ}dt
+        \end{equation}
+    \end{block}
+\end{frame}
+
+
+\begin{frame}\frametitle{Related Masters}
+    \begin{block}{Within Signal Processing} 
+     \begin{itemize}
+         \item Signal Processing and Computing.
+         \item Acoustics
+         \item Sound \& Music Computing.
+     \end{itemize}
     \end{block}
 \end{frame}
 
