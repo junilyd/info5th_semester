@@ -15,21 +15,7 @@
         \begin{itemize}
             \item Estimating carrier frequency.
             \item Errors at low frequency in windmill.
-            \item Estimation of noise.
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-% \subsection{Filter Implementation}
-\begin{frame} \frametitle{Filter Design}
-    \framesubtitle{From s-domain to z-domain}
-    \begin{block}{Filter Design Specs}    
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{img/filter2_frq_res}
-        \end{center}
-        \begin{itemize}
-            \item Doppler Shift Range.
-            \item Speech Area.
+            \item Analysis of speech.
         \end{itemize}
     \end{block}
 \end{frame}
@@ -39,30 +25,28 @@
     \framesubtitle{From s-domain to z-domain}
     \begin{block}{Filter Design Specs}    
         \begin{center}
-            \includegraphics[width=0.8\textwidth]{img/filter_C_cascade}
-        \end{center}
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{img/filter_asm_cascade}
+            \includegraphics[width=0.8\textwidth]{img/filter2_frq_res}
         \end{center}
         \begin{itemize}
-            \item Implementing in C and Assembly ($z$-domain).
+            \item Doppler Shift Range.
+            \item Speech Area.
+            \item Implementing in C and Assembly.
         \end{itemize}
     \end{block}
 \end{frame}
 
-% \subsection{Power Detection}
-\begin{frame} \frametitle{Power Detection}
-    \framesubtitle{Packet Detection for SDR}
-    \begin{block}{Packet Detection \& Time Synchronization}    
+
+% \subsection{Filter Implementation}
+\begin{frame} \frametitle{Filter Implementation}
+    \framesubtitle{From s-domain to z-domain}
+    \begin{block}{Filter Design Specs}    
         \begin{center}
-            \includegraphics[width=0.8\textwidth]{img/packet_from_recording}
-        \end{center}
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{img/dsw4} 
+            \includegraphics[width=0.8\textwidth]{img/filter2_frq_res}
         \end{center}
         \begin{itemize}
-            \item Could also be for localization of speech.
+            \item Doppler Shift Range.
+            \item Speech Area.
+            \item Implementing in C and Assembly.
         \end{itemize}
     \end{block}
 \end{frame}
-
