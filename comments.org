@@ -1,0 +1,69 @@
+* Comments from the groups
+** Jeppes gruppe
+Emne: Fjerne støj fra tale på en DSP i real time.  
+- Design af systemet i Matlab script 
+- Implementering på DSP
+
+Vigtige emner vi kom ind på har hver deres chapter, fx DFT/FFT
+* Our presentation
+** Jacob: Wind project
+** Søren: Noise project
+** Jacob+Søren: SDR project
+
+* Oversigt: Søren start
+** Projektforslag
+- Effect pedal -- meget åben
+- Automatisk node-skriver
+- Differential PCM
+
+Udført:
+- Noise suppression
+- Frequency analyzer -- ledte til windmill
+- Eget forslag: Satlab SDR receiver
+** Projektgennemgang
+*** Wind: Tema, frekvensområde, figur
+- Source: Accelerometer on windmill
+*** Noise: Tema, frekvensområde, figur
+- Source: Microphone
+- Sampling -- aquire speech signal
+- Windowing -- make signal more periodic (for better FFT)
+- Voice detection (VAD) -- when is speech present? Cut sound elsewise.
+- DFT -- convert to freq domain
+- Estimate noise
+- Spectral subtraction -- remove noise in freq domain
+- IDFT -- convert back to time domain
+- Inverse windowing -- remove the window effect
+- Playback
+*** SDR: Gennemgang
+**** Implemetation hardware: Analog Devices Blackfin + linux
+- Texas Instruments DSP
+- Analog Devices + AIS board
+- 16 bit fixed point
+- Linux
+- MATLAB
+- C/ASM programming
+- Fixed point implementation -- only integer types!
+**** Source: Satellite receiver frontend
+- Accelerometer på vindmølle
+- Mikrofon
+- Sampling er centralt. Nedsampling etc.
+**** Jacob start: FSK modulation -- frequency for 0 and for 1
+- Alle tre projekter: analyse i frek. domænet
+- wind: Fejl ved bestemte frekvenser
+- noise: Estimer noise content i frek. domænet
+**** Band pass filter -- filter out noise
+- Implementering af digitale (z-domæne) filtre
+- Filtre er over alt
+**** Packet detection  -- detect the packet!
+- Speech detection (VAD)
+**** FFT -- find the frequency where transmission is.
+- Noise: Find and subtract noise
+- Wind: Find errors.
+**** Time synchronize -- when does the "bit" start?
+**** Symbol decision -- what bits were sent?
+- Wind: Which errors were detected?
+** Kandidater
+- SPC
+- Akustik
+- Sound and music computing
+- (wireless)
